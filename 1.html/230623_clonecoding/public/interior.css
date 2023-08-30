@@ -1,0 +1,76 @@
+#interior {
+  padding: 7rem 0;
+}
+#interior .pictures {
+  margin-top: 3rem;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem; */
+}
+
+/* #interior .pictures div {
+  border: 1px solid black;
+  width: 15rem;
+  min-width: 15rem;
+  width를 유동적으로, gap이 고정되어야하고 화면에 따라 변해야해서 flex 1을 준거고 min-width를 주고 width에 %를 주어도됨
+  height: 20rem;
+  border-radius: 2rem;
+  flex: 1;
+} */
+
+#interior .pictures .row1 {
+  display: flex;
+  /* border: 1px solid black; */
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#interior .pictures .row2 {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  /* border: 1px solid red; */
+  min-width: 25rem;
+  /* background-color: antiquewhite; */
+}
+
+#interior .pictures .row2 > div {
+  /* height: 10rem; */
+  flex: 1;
+  /* border: 1px solid blue; */
+}
+
+#interior .img {
+  width: 100%;
+  height: 100%;
+  background-color: gold;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+#interior .img img {
+  width: 150%;
+}
+
+/* @media only screen and (max-width: 720px) {
+  #interior .pictures .row1 {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  #interior .pictures .row2 {
+    min-width: 15rem;
+  }
+} */
+
+@media only screen and (max-width: 480px) {
+  #interior .pictures .row1 {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  #interior .pictures .row2 {
+    min-width: 15rem;
+  }
+}

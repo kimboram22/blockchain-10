@@ -1,0 +1,27 @@
+.flex-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* 가로에 대해서 정렬  */
+  justify-content: end;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  height: 200px;
+  align-items: center;
+  align-items: stretch;
+
+  flex-direction: column;
+}
+
+.flex-box div {
+  /* flex: 1; */
+  /* 좌우로 늘릴때 1 */
+  min-width: 100px;
+  background-color: black;
+  min-height: 50px;
+}
+.flex-box div:nth-child(2n) {
+  background-color: red;
+}

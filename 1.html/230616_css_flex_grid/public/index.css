@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*  위에 두가지 적고 시작하기 */
+
+.area {
+  margin: 10px 20px 30px 40px;
+  padding: 40px 30px 20px 10px;
+  border: 1px solid black;
+  border: 2px dashed red;
+  border: 3px dotted blue;
+  border: 4px double green;
+  border-radius: 50px;
+  width: 500px;
+  height: 200px;
+  box-sizing: border-box;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border: 4px double green;
+  border-radius: 100px;
+}
+
+.etc {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.etc div {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: #425;
+}
+.etc div:first-child {
+  background-color: gold;
+  left: 50px;
+  top: 50;
+  z-index: 10;
+  opacity: 0.5;
+  /* 영역자체를 투명하게 해줌 */
+}

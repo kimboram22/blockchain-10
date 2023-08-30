@@ -1,0 +1,52 @@
+#curriculum {
+  background-color: lightsteelblue;
+  padding: 7rem 0;
+  /* display: none; */
+}
+#curriculum .box-wrapper {
+  margin-top: 6rem;
+}
+#curriculum .box-wrapper,
+#curriculum .box-wrapper > div {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  /* border: 1px solid black; */
+  flex-wrap: wrap;
+  min-width: 30rem;
+}
+
+#curriculum .box-wrapper .box {
+  flex: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+#curriculum .box-wrapper .box p {
+  background-color: white;
+  padding: 3rem;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.img {
+  background-color: gold;
+  width: 100%;
+  height: 100%;
+}
+
+.img img {
+  width: 150%;
+}
+
+@media only screen and (max-width: 480px) {
+  #curriculum .box-wrapper {
+    gap: 0.5rem;
+  }
+
+  #curriculum .box-wrapper > div {
+    min-width: 15rem;
+  }
+}

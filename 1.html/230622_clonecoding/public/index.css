@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  /* height: 100px; */
+  max-width: 1300px;
+  /* max-width: calc(1300px + 6rem);
+  계속 1300px을 사용하고 싶을때 */
+  padding: 0 3rem;
+  /* background-color: lightgreen; */
+  margin: auto;
+}
+
+.title-box {
+  /* border: 1px solid black; */
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.title-box h1 {
+  font-size: 1.2rem;
+  color: blueviolet;
+}
+
+.title-box h2 {
+  font-size: 2.5rem;
+  word-break: keep-all;
+}
+
+.square {
+  position: relative;
+}
+.square::after {
+  /* 정사각형만들기 */
+  content: "";
+  /* background-color: lightgray; */
+  display: block;
+  /* 부모의 너비를 사용하기위해서 block, after 사용시 필수 */
+  padding-bottom: 100%;
+  /* 패딩은 너비를 가져다사용함 */
+  /* 1920의 1080크기로 바꿔볼때 
+  padding-bottom: calc(1080/1920*100%); */
+}
+
+.square > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* 위에 width height안주고 right:0 bottom:0 써도상관없다 */
+  /* left, right, top, bottom에 값을주면 패딩준것처럼 떨어져보임 */
+  left: 0;
+  top: 0;
+  /* background-color: rebeccapurple; */
+}
+
+/* @media only screen and (max-width: 720px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .title-box h1 {
+    font-size: 1rem;
+  }
+
+  .title-box h2 {
+    font-size: 1.5rem;
+  }
+} */
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .title-box h1 {
+    font-size: 1rem;
+  }
+
+  .title-box h2 {
+    font-size: 1.5rem;
+  }
+}

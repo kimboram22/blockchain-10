@@ -1,0 +1,99 @@
+#same {
+  padding: 5rem 0 0;
+  background-color: #f3efef;
+}
+
+#same .same-title {
+  text-align: center;
+}
+#same .same-title h1 {
+  font-size: 2.5rem;
+}
+
+#same .same-title span {
+  font-size: 2.3rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#same .buttons {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+#same .buttons div {
+  flex: 1;
+  /* padding: 0 1rem; */
+}
+
+#same .buttons button {
+  width: 100%;
+  /* padding: 35px; */
+  height: 8rem;
+  font-size: 2rem;
+  border-radius: 2rem;
+  font-weight: 900;
+  color: white;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  border: none;
+  transition: border-radius 0.5s linear;
+  cursor: pointer;
+}
+
+#same .buttons button:hover {
+  border-radius: 5rem;
+}
+
+#same .buttons p {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-weight: 900;
+}
+
+#same .bootcamp button {
+  background: linear-gradient(to right, dodgerblue, lightblue);
+}
+
+#same .bootcamp p {
+  color: cornflowerblue;
+}
+
+#same .develrocket button {
+  background: linear-gradient(to right, fuchsia, lightpink);
+}
+
+#same .develrocket p {
+  color: hotpink;
+}
+
+/* #same .same-bg {
+  border: 1px solid black;
+  height: 200px;
+  background: url(../public/imgs/intro_ft_bg.png) no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+} */
+
+#same .map-wrap {
+  /* border: 1px solid black; */
+  max-width: calc(1900px + 6rem);
+  padding: 0 3rem;
+  margin: 0 auto;
+  background: url(./imgs/intro_ft_bg.png) no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+#same .map-wrap .map {
+  width: 90%;
+  /* border: 1px solid red; */
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: auto;
+}
+
+#same .map-wrap .map img {
+  width: 100%;
+}

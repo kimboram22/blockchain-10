@@ -1,0 +1,17 @@
+.box-wrap {
+  background-color: lightgray;
+  /* padding: 0 10rem; */
+  /* border: 1px solid black; */
+  width: 50rem;
+  height: 20rem;
+  position: relative;
+}
+
+.box {
+  /* background-color: lightgreen; */
+  /* height: 5rem; */
+  /* margin: 5rem 0; */
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+}
