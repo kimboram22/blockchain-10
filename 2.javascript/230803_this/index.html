@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const job = {
+        job: "senior developer",
+        career: "10",
+        ageGroup: {
+          group: 30,
+          person: {
+            name: "ingoo",
+            id: "web7722",
+          },
+        },
+      };
+
+      const boram = {
+        ...job,
+        ageGroup: {
+          ...job.ageGroup,
+          person: {
+            ...job.ageGroup.person,
+            // 점차적으로 하나씩 끊어서 한번더 객체를 생성해주는거야
+            // job에서 ageGroup까지 중첩으로 덮어쓰는
+          },
+        },
+      };
+
+      boram.ageGroup.person.name = "boram";
+
+      console.log(job);
+      console.log(boram);
+      console.log(job === boram);
+      console.log(job.ageGroup === boram.ageGroup);
+      console.log(job.ageGroup.person === boram.ageGroup.person);
+
+      //   const obj = {
+      //     text: "hello",
+      //     text: "world",
+      //   };
+
+      //   console.log(obj);
+      //world가 뜨는데 덮어써진거야
+
+      // 스프레드 연산자말고 재귀함수로도 가능하다
+      // 디렉토리 파일을 할때는 재귀함수를 씀
+
+      const solution = (obj) => {
+        if (typeof obj !== "object") return obj;
+
+        const result = {};
+        const keys = Object.keys(obj);
+        // return은 [job,carrer, ageGroup] 배열이나와
+        for (let i = 0; i < keys.length; i++) {
+          // 3번 반복되면서
+          //   console.log(i); // 0~2 // job
+          //   keys[i];
+          //   obj[keys[i]];
+          solution(obj[keys[i]]); // senior developer
+          result[keys[i]] = solution(obj[keys[i]]);
+        }
+        return result;
+      };
+
+      const result = solution(job);
+      console.log(result);
+      console.log(job === result);
+      console.log(job.ageGroup === result.ageGroup);
+      console.log(job.ageGroup.person === result.ageGroup.person);
+      // false
+    </script>
+  </body>
+</html>

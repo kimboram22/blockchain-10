@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* fixed 입력한 만큼 고정시키기위해 */
+}
+
+col.number {
+  width: 5%;
+}
+col.title {
+  width: 45%;
+}
+col.user {
+  width: 20%;
+}
+col.created-at {
+  width: 20%;
+}
+col.views {
+  width: 5%;
+}
+col.likes {
+  width: 5%;
+}
+
+th {
+  border-bottom: 2px solid black;
+}
+td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px dashed black;
+  text-align: center;
+}
+
+th,
+td {
+  /* 말줄임표 ... 사용방법 그냥 외워 */
+  overflow: hidden;
+  white-space: nowrap;
+  /* 넘치는걸 다음줄로 넘기지말라고 */
+  text-overflow: ellipsis;
+  /* 줄어든 내용을 ... 으로 */
+}
+
+td.title {
+  text-align: start;
+}

@@ -1,0 +1,88 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithm</title>
+  </head>
+  <body>
+    <div>Big-O</div>
+    <script>
+      // *** 알고리즘에서 시간의 대한 것 (코드가 실행되는 시간)
+      //코드를 실행함에있어 시간이 얼마나 늘어나는지
+      //  Big-O의 표기법 대문자 o
+      // n^2 이나 2^n 같은경우 늘어나면 늘어날수록 시간도 늘어나
+
+      // 1. O(1)
+      //같은시간을 가져??? 일정한 속도를 유지하는것
+      console.log("a");
+      // 몇개를 적든지간에 항상 같은시간에 나와
+      //
+
+      // 2. O(n)
+      // n: 입력된 갯수, 입력한만큼 나오는
+      // 들어간 만큼 실행 , 무한대까지 생각해 arr.length *2 도 상관없지만 얼마나 시간이 걸리나
+      function bigOn(...arr) {
+        for (let i = 0; i < arr.length; i++) {
+          console.log(arr[i]);
+        }
+      }
+      bigOn(1, 34, "saer");
+      //n = 100,000,000 -> 1억번 실행하는거야
+      //n = 1,000,000,000 -> 10억번 실행하는거야
+      // 매개변수만큼 시간이 늘어나는것
+      //
+
+      // 3. O(log n)
+      // 입력수가 늘어날수록 입력수에 비해 증가수가 줄어드는????
+      // updown게임 -> 1~100중에서 하나를 고르고 업인지 다운인지
+      // => 100,50,25,12,6,3,2,1 -> 8
+      // => 1000,500,250,125,62,31,15,7,3,2,1 ->11
+      // 정렬할때 많이 사용 ---내일할내용
+      function updown(n, answer) {
+        //1~n까지의 수 중에서 answer를 맞추기 위한 횟수는?
+        // 로직자체는 50을 물어봤어 근데 업이래 그래서 75를 물어봐 그리고 다운해서 물어봐
+        let temp = n / 2,
+          temp2 = 0;
+        count = 1;
+        while (temp + temp2 != answer) {
+          if (temp + temp2 < answer) temp2 = temp + temp2;
+          // 업일때 75를 부를경우에 temp2에서 temp를 ...저장해주고
+          // 50+25 로 75를 물었고
+          // 75에서 다운이라고하면 50에서 75사이
+          // 25의 반 12  50+12로 62를 물어봐
+          // 이전값에
+          temp = parseInt(temp / 2);
+          count++;
+          //down 일때 50을 불렀다고 생각했을때...
+        }
+        return count;
+        // if (temp == answer) return 1;
+        // temp == temp / 2;
+        // if (temp == answer) return 2;
+        // temp == temp / 2;
+        // if (temp == answer) return 3;
+      }
+      console.log(updown(100, 37));
+      // updown(100,50)일 경우 1이 나오게
+      //
+
+      // 4. O(n^2)
+      // 이중포문..같은경우에서 중첩되게
+      function bigOn2(...arr) {
+        for (let i = 0; i < arr.length; ++i)
+          for (let j = 0; i < arr.length; ++j) console.log(i + j);
+      }
+      // n = 100,000,000 => 10,000,000,000,000,000번 실행되는거야
+      //
+
+      // 5. O(2^n)
+      // 피보나치수열, 하노이의 탑(재귀함수를 사용했을땐 시간이 많이걸려)
+
+      // 총 1,000,000,000초 (십억초) 기다림, 10개 입력으로 테스트완료
+      // 입력(매개변수) 몇개까지 전달할수있을까
+      //   O(1) -> 무한대까지 가능 => 0.001이더 ???
+      //   O(n), 10/1000s -> 10,000,000개 (1개당 100초 소요) => 1이더 ???
+      //   O(n^2), 10/1000s(10의 제곱에서 1000초) -> (1개당 10루트10) (1000일때 1,000,000,000) 만개?????
+    </script>
+  </body>
+</html>

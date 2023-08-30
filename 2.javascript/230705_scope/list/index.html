@@ -1,0 +1,151 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>출석부</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 1rem 2rem;
+        border: 1px solid black;
+      }
+      thead tr {
+        background-color: lightgray;
+      }
+      #name,
+      #age {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <table>
+        <thead>
+          <tr>
+            <th>Num</th>
+            <th id="name">이름</th>
+            <th id="age">나이</th>
+            <th>취미</th>
+          </tr>
+        </thead>
+        <tbody id="students"></tbody>
+      </table>
+    </div>
+    <script>
+      function Student(name, age, hobby) {
+        this.name = name;
+        this.age = age;
+        this.hobby = [];
+        //취미를 배열로 넣어주었으니까(여러개일경우)
+
+        if (typeof hobby == "object") {
+          //배열자체가 hobby다
+          this.hobby = hobby;
+        } else {
+          this.hobby.push(hobby);
+          //하나이면 스트링이면 hobby에 넣어달라
+        }
+      }
+      const students = [
+        new Student("강수빈", 26, ["애니 감상", "달리기", "팔굽혀펴기"]),
+        new Student("임태훈", 28, "영화 감상"),
+        new Student("양원철", 28, "골프"),
+        new Student("이선균", 30, "맛집 탐방"),
+        new Student("김호현", 26, ["국내 여행", "세계 투어"]),
+        new Student("황현준", 28, "드라이브"),
+        new Student("김보람", 30, "일기 쓰기"),
+        new Student("이은재", 24, "독서"),
+        new Student("정승교", 24, "자전거 타기"),
+        new Student("박상현", 30, "농구"),
+        new Student("전상민", 32, ["분석", null]),
+        new Student("김지훈", 26, "유튜브 보기"),
+      ];
+      console.log(students);
+
+      const studentsElem = document.getElementById("students");
+      function addStudent(number, student) {
+        const tempTr = document.createElement("tr");
+        const tempNum = document.createElement("td");
+        const tempName = document.createElement("td");
+        const tempAge = document.createElement("td");
+        const tempHobby = document.createElement("td");
+        tempTr.append(tempNum);
+        tempTr.append(tempName);
+        tempTr.append(tempAge);
+        tempTr.append(tempHobby);
+        studentsElem.append(tempTr);
+        tempNum.innerHTML = number;
+        tempName.innerHTML = student.name;
+        tempAge.innerHTML = student.age;
+
+        student.hobby.forEach((item) => {
+          const hobbyLinkElem = document.createElement("a");
+          const hobbyElem = document.createElement("div");
+          hobbyElem.innerHTML = item;
+          hobbyLinkElem.target = "_blank";
+          hobbyLinkElem.href =
+            "https://www.google.com/search?q=" +
+            item +
+            "&oq=" +
+            item +
+            "&aqs=chrome..69i57j0i512l9.2616j1j4&sourceid=chrome&ie=UTF-8";
+          hobbyLinkElem.append(hobbyElem);
+          tempHobby.append(hobbyLinkElem);
+        });
+        // 취미를 눌렀을때 검색할수있게 하려고 div로 분리하신것임
+        //      이건 그냥보고-- 수정함!!!!!!
+      }
+
+      for (let i = 0; i < students.length; ++i) {
+        addStudent(i + 1, students[i]);
+      }
+      //   let i = 0;
+      //   students.forEach((item) => {
+      //     addStudent(++i, item);
+      //   });
+
+      // 심화버전
+      //   students.forEach((item, idx) => {
+      //     addStudent(idx + 1, item);
+      //   });
+
+      //넘버는 고정해두고 이름순으로 뜨게 정렬먼저
+
+      function sortStudents(property, isSorted) {
+        studentsElem.innerHTML = "";
+        students.sort((a, b) => {
+          //객체안에 있는 이름끼리 비교하기위해서
+          return (a[property] > b[property] ? 1 : -1) * isSorted;
+          //유니코드로 비교하기때문에 a가 큰지 b큰지 이름을 기준으로 비교했을때
+          //    isSortd를 곱해주면서 완전 반대로
+          //a가 크면 1 b가 크면 -1
+          //1이면 이름순 -1 역순
+        });
+        for (let i = 0; i < students.length; ++i) {
+          addStudent(i + 1, students[i]);
+        }
+      }
+      let isSortName = 0;
+      let isSortAge = 0;
+
+      document.getElementById("name").onclick = () => {
+        isSortAge = 0;
+        if (isSortName < 1) isSortName = 1;
+        else if (isSortName > 0) isSortName = -1;
+        sortStudents("name", isSortName);
+      };
+      //   sortName(-1); // 이름역순
+      //   sortName(1); // 이름순
+      document.getElementById("age").onclick = () => {
+        isSortName = 0;
+        if (isSortAge < 1) isSortAge = 1;
+        else if (isSortAge > 0) isSortAge = -1;
+        sortStudents("age", isSortAge);
+      };
+    </script>
+  </body>
+</html>

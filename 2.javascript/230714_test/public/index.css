@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+#root {
+  width: 1920px;
+}
+
+#login-box {
+  width: 20rem;
+  height: 22rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  margin: 2rem;
+}
+
+#login-box .title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 2rem;
+}
+#login-box .login {
+  padding: 3rem 1rem 1rem 1rem;
+}
+
+#login-box .login > div {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.login input {
+  width: 17rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+#login-box .btn {
+  display: block;
+  width: 17rem;
+  height: 3rem;
+  background-color: darkgreen;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+}

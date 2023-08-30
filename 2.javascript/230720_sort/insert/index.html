@@ -1,0 +1,37 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert</title>
+  </head>
+  <body>
+    <script src="../swap.js"></script>
+    <script src="../test.js"></script>
+    <script>
+      // insert 정렬은 하나씩...자리를 찾아가..?
+      // 어디에 위치해야하는지를 11:33
+      function sortInsert(arr) {
+        const tempArr = [...arr]; //깊은복사 : 내부것으로 새로운 배열을 만든다
+        // const tempArr2 = arr; //얕은복사 : 내부것을 수정해버린다? 메모리주소를 복사해
+        // 원본을 훼손하는지에 대한 차이!!!!!
+
+        for (let i = 1; i < tempArr.length; ++i) {
+          for (let j = i; j > 0; j--) {
+            if (tempArr[j] < tempArr[j - 1]) swap(tempArr, j, j - 1);
+            // else break;
+          }
+        }
+        return tempArr;
+      }
+      console.time("sortInsert");
+      console.log(sortInsert(arr));
+      //arr =0.243896484375 ms
+      console.timeEnd("sortInsert");
+      //
+      //   console.time("sortInsert");
+      //   console.log(sortInsert(testArr));
+      //   //arr =5696.616943359375 ms
+      //   console.timeEnd("sortInsert");
+    </script>
+  </body>
+</html>

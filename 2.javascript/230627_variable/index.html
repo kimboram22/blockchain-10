@@ -1,0 +1,103 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript</title>
+  </head>
+  <body>
+    <script>
+      // 자바스크립트 입력하는 엘리먼트
+      number = 1;
+      //   1+2=3
+      // =을 기준으로 오른쪽에 있는걸 왼쪽에 넣는다고 이해하기 --연산자
+      console.log(number);
+      console.log("안녕하세요");
+      //   글자자체를 보여주고싶다면 ' ' 혹은 " " 입력
+      string = "이것은 글자입니다.";
+      console.log(string);
+      //   안녕하세요 = "이것은 안녕하세요입니다.";
+      //   console.log(안녕하세요);
+      `이것도 문자입니다.`;
+      bool = true;
+      //   boolean 불값
+      unde = undefined;
+      nul = null;
+      //   둘다 없다는 뜻, 정확하게 분류하자면 undefinded는 값을 넣은적이 없는상태(아무것도 준게없다고 없다는), null은 내가 '없다'고 못박아둔것
+      //   console.log(이런거없어);
+      //   이렇게 쓰면 혼나
+
+      var varNumber = 2;
+      var varString = "이것은 변수 문자열입니다";
+      console.log(varNumber);
+      console.log(varString);
+      //    var 명령어로 변수를 만들겠다는 뜻 이름을 주고 값을 넣었음
+      var varUnde;
+      console.log(varUnde);
+      var varSymbol = Symbol("여기에 값을 넣어 사용한다");
+      console.log(varSymbol);
+      // 요즘 var를 잘 사용하지않아...
+
+      //   위는 ES5이전이며 아래는 ES6이후 사용함
+
+      let letNumber = 23;
+      const constNumber = 23;
+
+      var varNumber = 32;
+      console.log(varNumber);
+
+      letNumber = 32;
+      console.log(letNumber);
+
+      //   constNumber = 23;
+
+      //   let letNumber = 32;
+      // let은 같은 이름으로 선언된것은  중복 사용이안돼 (중복된 네임을 알려준다) 작업하는데 있어 헷갈릴일이 없음
+      // 하지만 var은 계속 중복으로 사용되서 혼용되면 문제가 생길수있어
+      //   const도 두번적을수 없어. constant, 고정된거라서 한번정한값을 바꿀수없어 넣을수없어
+      //   var잘안쓰고 let은 자주사용하고 cont는 정해진것들을넣을때 사용
+
+      //   console.log(tempValue);
+      //   console.log(tempLetValue);
+      //   var tempValue;
+      //   let tempLetValue;
+      //   console.log(tempValue);
+      //   console.log(tempLetValue);
+      //   위에쓴걸 가져올수있는건 runtime에서 확인할수있어, 이벤트루프에 들어왔을때! 변수명을 미리 콜스택에 저장해둠 (이름을 다 정해둠) / 실행하기 전에 한번 훑어서 코드가 있는지 확인해봄, 위치 지정까지 해둠
+      //   var는 undifined을 아예 넣어주고, let과 const는 아예 값이 없는 상태인 변수명만!
+      //   다른언어들에서는 이런 경우의수가 없어
+      //   var라고 있으면 코드를 끌어올려서 undifined를 넣었다고 형식이라고 인식해두기 -> 호이스팅
+      //   var는 사용하지 않는걸로!!!!!!!!!!!!
+
+      //   변수명 규칙으로 1.카멜형
+      // tempLetVaule => temp let value  띄어쓰기를 할수없어서 대문자로 표시를해주는
+      // 2. 파스칼형 시작이 대문자로 시작하고 카멜처럼 눈에띄게 대문자로 구분해서 볼수있게
+      // TempLetVaule  => 클래스를 만들때 사용
+      // 3. 스네이크형
+      //temp_let_value
+      // 4. 케밥 표기법 꼬치로 꽂았다는 의미로
+      // temp-let-value << class,id 이름을 css에서 쓰던 형식, 자바스크립트에서는 사용못함 - 빼기로 인식하기때문
+      // 5.헝가리안 표기법
+      //intTempLetValue numTempLetValue  => 앞에 어떤형태인지 알려주는 -이제는 안쓰는 표기법
+      // 카멜형과 파스칼형을 가장 많이 사용함
+
+      //   특수문자를 넣고싶을떄는 \ 역슬래시 넣어주기
+
+      // 여기까지 원시 타입 (이름과 값이 일대일로 매칭되는)
+
+      let num1 = 16;
+      let num2 = 5;
+      console.log(num1 + num2);
+      console.log("문자열" + "문자열");
+      console.log(true + 2);
+      let num3 = num1 + num2;
+      console.log(num1 + num2 + "문자열");
+      //   21문자열
+      console.log("문자열" + num1 + num2);
+      //   문자열165
+
+      console.log("\u3AA1");
+      console.log("\{\u3AA1\}");
+      // 유니코드 3AA1을
+    </script>
+  </body>
+</html>

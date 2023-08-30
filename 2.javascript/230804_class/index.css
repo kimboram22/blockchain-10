@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.board {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.board > thead {
+  background-color: #333;
+  color: white;
+  font-size: 1.2rem;
+}
+.board > thead > tr > th {
+  padding: 4px 7px;
+}
+.board > tbody {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.board > tbody > tr > td:nth-child(2) {
+  text-align: left;
+}
+
+h2 {
+  padding: 10px;
+}

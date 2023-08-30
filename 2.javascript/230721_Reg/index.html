@@ -1,0 +1,123 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expression</title>
+  </head>
+  <body>
+    <h1>정규표현식</h1>
+    <p>특정한 규칙을 문자열의 집합을 표현하는데 사용하는 형식 언어</p>
+    <script>
+      const str = "eorjoejlmsojrtowjtlmfbrorrotdsrfnqweotjowawa";
+      //   while (true) {
+      //     let tempIdx = str.indexOf("a");
+      //     console.log(tempIdx);
+      //     if (tempIdx < 0) break;
+      //   }
+      //   if(str.indexOf('@')>0){
+      //     if(str.indexOf('.')>0){
+      //         if(str.indexOf('@')<str.indexOf('.')){
+      //             sae.tdf@naver.com
+      //         }
+      //     }
+      //   }
+      // 이런게 정규표현식???
+
+      const reg1 = /정규표현식/;
+      const reg2 = new RegExp("정규표현식");
+      // 정규표현식 클래스
+      console.log("정규표현식 사용중".match(reg1));
+      console.log("정규표현식 사용중".replace(reg1, "정규식"));
+
+      const three = /[3,6,9]/g;
+      //플래그가 있어 맨끝에 g를 적어주면 -> g : global 전체를 다찾으라는 명령어
+      console.log("459746535946568797946".match(three));
+
+      const korean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+      // 천지인은 안되는... ㅡ ㅣ. :
+      // 유니코드상 가 부터 힣까지 한글전체를 확인하는 방법
+      console.log(korean.exec("뷁"));
+      // utf-8기준으로 나와 조합협
+      // 2350자 완성형 한글.. 조합협..?!?!
+
+      const infoReg = /^i'm/i;
+      // i 대소문자 구분하지 않고 같은 내용인지 찾아 -> ig같이 적을수있어 true false
+      // ^ 이걸 넣으면 맨앞을 확인하는데 해당 글자로 시작하는지를 확인한다. true false
+      console.log(infoReg.test("I'm 김보람"));
+
+      const plusReg = /a+/gi;
+      // a가 하나라도 있는 모든것을 찾아오는 +
+      console.log(plusReg.exec("Aabtemdo dflamxet etiiaaa".match(plusReg)));
+
+      const questionReg = /a?/g;
+      // 9:56 하나하나?
+      console.log("Aabtemdo dflamxet etiiaaa".match(questionReg));
+
+      const starReg = /a*/gi;
+      // 한개던지 붙어있던지 다
+      console.log("Aabtemdo dflamxet etiiaaa".match(starReg));
+
+      const endReg = new RegExp("A$", "gi");
+      // new로 쓸때는 플래그는 매개변수에 , 뒤에 적으면 된다
+      // 끝나는지를 확인하는것
+      console.log("Aabtemdo dflamxetA etiiaaa".match(endReg));
+      const endReg1 = /A\s/gi;
+      console.log("Aabtemdo dflamxetA etiiaaa".match(endReg1));
+
+      const countReg = /[a-z]{5}/;
+      console.log("asfdfsdsfsdfdfdssddssfdsfsteer".match(countReg));
+      const countReg1 = /[a-z]{5,10}/;
+      // {,} 찍으면 최소 5개부터 최대 10까지 알파벳만
+      console.log("111asfdfsdsfsdfdfdssddssfdsfsteer".match(countReg1));
+
+      const numberReg = /\d+/;
+      // \d는 숫자를 잡아내???
+      console.log("dfjljoejlsdfj18752".match(numberReg));
+      const numberReg1 = /d\.[0-9]+/;
+      console.log("dfjljoejlsdfj18.752dfdsfew".match(numberReg1));
+      const numberReg2 = /\D+/;
+      console.log("dfjljoejlsdfj18.752dfdsfew".match(numberReg2));
+
+      const strReg = /\w+/;
+      // 대문자 소문자 숫자 언더바까지 찾아
+      console.log("dfjljoejlsdfj18.752dfdsfew_5".match(strReg));
+
+      const strReg1 = /\W+/;
+      // 대문자 소문자 숫자 언더바가 아닌것을 찾아
+      console.log("dfj안녕ljoejlsdfj18.752dfdsfew_5".match(strReg1));
+
+      const spaceReg = /\s+/;
+      // 띄어쓰기 탭 엔터 찾아
+      console.log(
+        `adsf dfd     dfdf
+      dfdfdf`.match(spaceReg)
+      );
+
+      const spaceReg1 = /\S+/;
+      // 띄어쓰기 탭 엔터 가 아닌것을 찾아
+      console.log(
+        `adsf dfd     dfdf
+      dfdfdf`.match(spaceReg1)
+      );
+
+      const spetialReg = /[\@\#\$\%\^\\\-]/;
+      // 특수문자를 찾고싶을때 \ 을붙여주면된다!!
+      console.log("-*/*-*@##$%%".match(spetialReg));
+
+      let emailReg =
+        /^[0-9a-zA-Z]([-_.])?[0-9a-zA-Z]*@[0-9a-zA-Z]([-_.])?[0-9a-zA-Z]*.[a-zA-Z]{2,3}$/i;
+      // dfrd@dfdfd.com
+      // 이메일주소를 입력받을때 사용되는거야
+
+      const ex = /\d+[0-9]{3}\-[0-9]{3,4}\-[0-9]{3,4}/;
+      const phoneReg = /^(\d{3}\-)([0-9]{3,4})(\-\d{4})$/;
+      // $는 4개로 끝나야한다고 넣어주는것
+      console.log(ex.test("010-2527-4821"));
+      console.log(phoneReg.test("010-2527-4821"));
+      console.log(phoneReg.test("016-2527-4821"));
+      console.log(phoneReg.test("011-2527-4821"));
+
+      // 정규표현식은 찾아보기~~
+    </script>
+  </body>
+</html>

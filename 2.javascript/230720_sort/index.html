@@ -1,0 +1,76 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sort</title>
+  </head>
+  <body>
+    <script src="test.js"></script>
+    <script>
+      //   const arr = [8, 16, 88, 18, 343, 0, 100, 28, 90000, 0.5, 7, 13];
+      // 앞에서부터 하나씩 확인하며 가장 작은 수를 새로운 배열에 넣는다.
+      function gsb(arr) {
+        const tempArr = [];
+        // const tempIdxArr = [];
+        // for (let i = 0; i < arr.length; i++) {
+        while (arr.length) {
+          let minNumber;
+          let tempIdx = 0;
+          for (let j = 0; j < arr.length; ++j) {
+            // if (tempIdxArr.indexOf(j) > -1) continue;
+            if (minNumber == undefined || arr[j] < minNumber) {
+              minNumber = arr[j];
+              tempIdx = j;
+            }
+          }
+          tempArr.push(minNumber);
+          //   const tempIdx = arr.indexOf(minNumber);
+          //   tempIdxArr.push(tempIdx);
+          arr = [
+            //제일 작은걸 잘라서 tempArr에 넣어
+            ...arr.slice(0, tempIdx),
+            ...arr.slice(tempIdx + 1, arr.length),
+          ];
+          //   console.log(arr);
+        }
+        return tempArr;
+      }
+      console.time("gsb"); // 콘솔창에 출력할 시간을 측정하는데 사용 시작지점
+      //   console.log(gsb(testArr));
+      // O(n^2) 이중for문이라서
+      // testArr = 89374.54516601562 ms
+      console.log(gsb(arr));
+      // arr = 0.2060546875 ms
+      console.timeEnd("gsb"); //종료지점, 시작부터 종료지점까지 걸린 시간을 이름과 함께 출력
+      //   console.log(gsb(arr));
+      console.time("arr.sort");
+      //   console.log(testArr.sort((a, b) => a - b));
+      //O(n log n)  ?????
+      // testArr = 22.052978515625 ms
+      console.log(arr.sort((a, b) => a - b));
+      // arr= 0.09423828125 ms
+      console.timeEnd("arr.sort");
+      //   console.log(arr);
+      // 앞과 뒤를 비교해서 작은 수를 앞으로 바꾼다.
+
+      // 위에꺼 정리한거....
+      // console.time("gsb");
+      // console.log(gsb(arr));
+      // // arr = 0.2060546875 ms
+      // console.timeEnd("gsb");
+
+      //
+      // console.time("gsb");
+      // console.log(gsb(testArr));
+      // // testArr = 89374.54516601562 ms
+      // console.timeEnd("gsb")
+
+      // console.time("arr.sort");
+      // console.log(testArr.sort((a, b) => a - b));
+      // // testArr = 22.052978515625 ms
+      // console.log(arr.sort((a, b) => a - b));
+      // // arr= 0.09423828125 ms
+      // console.timeEnd("arr.sort");
+    </script>
+  </body>
+</html>

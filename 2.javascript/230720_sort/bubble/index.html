@@ -1,0 +1,41 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Bubble</title>
+  </head>
+  <body>
+    <script src="../swap.js"></script>
+    <script src="../test.js"></script>
+    <script>
+      console.log(arr);
+      // bubble은 앞과 뒤를 비교해서 작은수가 앞으로 가면서 비교하고 정렬해주는
+      // sort있어서 굳이 쓸필요는없지만 알고는 있어야해
+
+      //  12345 5개 라면 12 비교 23비교 하면서 1~5까지 5개비교하는게 버블!!!!!?
+      //????????????????
+      const sortBubble = (arr) => {
+        // 원본을 훼손하지 않는 방법으로
+        const tempArr = [...arr];
+        for (let i = 0; i < tempArr.length; i++) {
+          for (let j = 0; j < tempArr.length - 1; j++) {
+            // length -1 해줘야하는거야 0과 1을 비교하는데 10:47 --> 마지막꺼가 없기때문에 undefined가 나와
+            // forEach를 못쓴이유 -> 마지막까지 돌릴수없어서
+            if (tempArr[j] > tempArr[j + 1]) swap(tempArr, j, j + 1);
+            // console.log(j, tempArr);
+          }
+        }
+        return tempArr;
+      };
+      console.time("sortBubble");
+      console.log(sortBubble(arr));
+      //arr =0.343994140625 ms
+      console.timeEnd("sortBubble");
+      //
+      //   console.time("sortBubble");
+      //   console.log(sortBubble(testArr));
+      //   //testArr = 20237.739990234375 ms
+      //   console.timeEnd("sortBubble");
+    </script>
+  </body>
+</html>
