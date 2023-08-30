@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+
+.list-title{
+    padding: 20px 0;
+}
+
+.list-table{
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.list-table > thead {
+    background-color: #333;
+    color: white;
+}
+
+.list-table > thead > tr> th {
+    padding: 8px 19px;
+
+}
+
+.list-table > tbody > tr > td{
+    padding: 8px 19px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.list-table > tbody > tr > td:nth-child(2){
+    text-align: start;
+}
+
+.list-btn {
+    display: inline-block;
+    padding: 8px 19px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    margin-top: 20px;
+}
